@@ -1,120 +1,1026 @@
 
+/* =========================================
+   1. CONFIGURAÇÕES GERAIS
+========================================= */
 
-body {
+* {
     margin: 0;
     padding: 0;
-    background-color: #f2f5f8;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #edf1f5;
     color: #263445;
-    font-family: Arial, sans-serif;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
 }
 
 
-header {
-    background-color: #101e35;
-    color: white;
-    padding: 20px 30px;
+/* =========================================
+   2. ESTRUTURA PRINCIPAL
+========================================= */
 
-    display: grid;
-    grid-template-columns: auto 1fr;
+.app-shell {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   3. CABEÇALHO SUPERIOR
+========================================= */
+
+.cabecalho-superior {
+    background-color: rgb(0, 7, 81);
+    padding: 18px 30px 0;
+    border-bottom: 1px solid #dce4eb;
+}
+
+.barra-superior {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding-bottom: 17px;
+}
+
+/* MARCA DO SISTEMA */
+
+.marca-sistema {
+    display: flex;
     align-items: center;
     gap: 12px;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 24px;
-}
-
-
 #robo-img {
-    width: 48px;
-    height: 48px;
+    width: 45px;
+    height: 45px;
     object-fit: contain;
 }
 
+.marca-sistema h1 { 
+    font-size: 16px;
+    color: #263445;
+}
+
+.marca-sistema span {
+    display: block;
+    margin-top: 5px;
+    font-size: 11px;
+    color: #000000;
+}
+
+
+/* PERFIL E STATUS */
+
+.dados-superiores {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.perfil-usuario {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar-usuario {
+    width: 40px;
+    height: 40px;
+    background-color: #287d91;
+    color: white;
+    border-radius: 8px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: bold;
+}
+
+.perfil-usuario strong {
+    display: block;
+    font-size: 11px;
+    color: #263445;
+}
+
+.perfil-usuario small {
+    display: block;
+    margin-top: 4px;
+    color: #718092;
+    font-size: 10px;
+}
+
+.status-sistema {
+    background-color: #d9f2e8;
+    color: #237452;
+    border: 1px solid #b8e4d3;
+    border-radius: 20px;
+    padding: 8px 12px;
+    font-size: 10px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   4. NAVEGAÇÃO SUPERIOR
+========================================= */
 
 .navegacao {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-top: 22px;
     flex-wrap: wrap;
-    grid-column: 1 / -1;
+    padding: 12px 0;
+    border-top: 1px solid #edf1f5;
 }
 
-.navegacao button {
-    min-height: 48px;
-    padding: 12px 16px;
-    border: none;
-    border-radius: 8px;
-    background-color: transparent;
+.item-menu {
+    min-height: 42px;
+    padding: 10px 16px;
+
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    background-color: #f3f6f8;
+    color: #526176;
+
+    border: 1px solid #e1e7ed;
+    border-radius: 7px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+.item-menu > span {
+    font-size: 16px;
+}
+
+.item-menu:hover {
+    background-color: #e8eff3;
+    color: #287d91;
+}
+
+.item-menu.ativo {
+    background-color: #287d91;
+    border-color: #287d91;
     color: white;
-    font-size: 14px;
-    cursor: pointer;
+}
+
+
+/* =========================================
+   5. CONTEÚDO PRINCIPAL
+========================================= */
+
+.conteudo-principal {
+    flex: 1;
+    min-width: 0;
+    padding: 30px;
+}
+
+
+/* TÍTULO DA PÁGINA */
+
+.topo-pagina {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.identificacao-pagina {
+    color: #6e8294;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.topo-pagina h2 {
+    font-size: 23px;
+    margin: 7px 0;
+    color: #24384b;
+}
+
+.topo-pagina p {
+    font-size: 12px;
+    color: #718092;
+}
+
+
+/* =========================================
+   6. AVISO DO TÉCNICO
+========================================= */
+
+.painel-tecnico {
+    background-color: white;
+    border: 1px solid #dce4eb;
+    border-radius: 10px;
+
+    padding: 15px 17px;
+    margin-bottom: 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.icone-tecnico {
+    width: 39px;
+    height: 39px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #f8edcc;
+    color: #916a20;
+    border-radius: 9px;
+    font-size: 20px;
+}
+
+.informacao-tecnico {
+    flex: 1;
+}
+
+.informacao-tecnico strong {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.informacao-tecnico p {
+    font-size: 10px;
+    color: #718092;
+}
+
+.etiqueta-seguranca {
+    background-color: #f1f5f8;
+    color: #61778a;
+    border: 1px solid #dce4eb;
+    padding: 7px 10px;
+    border-radius: 6px;
+    font-size: 10px;
     white-space: nowrap;
 }
 
-.navegacao button:hover {
-    background-color: #29415f;
+
+/* =========================================
+   7. ALERTA CRÍTICO
+========================================= */
+
+.secao-alerta {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    background-color: #fff0ef;
+    border: 1px solid #e9b6b3;
+    border-left: 4px solid #d64c4c;
+
+    padding: 15px;
+    border-radius: 9px;
+    margin-bottom: 20px;
 }
 
-.navegacao .ativa {
-    background-color: #2458e6;
+.icone-alerta {
+    width: 35px;
+    height: 35px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #d64c4c;
+    color: white;
+    font-weight: bold;
+    border-radius: 50%;
+    font-size: 19px;
+}
+
+.informacao-alerta {
+    flex: 1;
+    min-width: 0;
+}
+
+.texto-alerta {
+    display: inline-block;
+    color: #bc3939;
+    font-size: 9px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+}
+
+.informacao-alerta h3 {
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.informacao-alerta p {
+    font-size: 10px;
+    color: #785d5d;
+}
+
+.acoes-alerta {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.botao-inspecionar,
+.botao-urgente {
+    min-height: 42px;
+    padding: 0 12px;
+    border-radius: 7px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.botao-inspecionar {
+    background-color: white;
+    color: #9a3d3d;
+    border: 1px solid #dca5a5;
+}
+
+.botao-inspecionar:hover {
+    background-color: #fff8f7;
+}
+
+.botao-urgente {
+    background-color: #bd3838;
+    color: white;
+    border: 1px solid #bd3838;
+}
+
+.botao-urgente:hover {
+    background-color: #a52929;
+}
+
+
+/* =========================================
+   8. INDICADORES
+========================================= */
+
+.indicadores {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.cartao-indicador {
+    min-width: 0;
+    background-color: white;
+    border: 1px solid #dce4eb;
+    border-radius: 9px;
+    padding: 15px;
+}
+
+.titulo-indicador {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+
+    font-size: 9px;
+    font-weight: bold;
+    color: #6d7f90;
+}
+
+.icone-indicador {
+    color: #4184c4;
+    font-size: 16px;
+}
+
+.icone-indicador.verde {
+    color: #2eaa79;
+}
+
+.icone-indicador.amarelo {
+    color: #cc952e;
+}
+
+.icone-indicador.vermelho {
+    color: #d64c4c;
+}
+
+.valor-indicador {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 12px 0 7px;
+    flex-wrap: wrap;
+}
+
+.valor-indicador strong {
+    font-size: 25px;
+    color: #293b4e;
+}
+
+.cartao-indicador p {
+    color: #8492a0;
+    font-size: 9px;
+}
+
+.descricao-valor {
+    color: #7d8b99;
+    font-size: 10px;
+}
+
+.etiqueta-meta,
+.etiqueta-atencao,
+.etiqueta-falha {
+    padding: 4px 7px;
+    border-radius: 5px;
+    font-size: 9px;
+    font-weight: bold;
+}
+
+.etiqueta-meta {
+    background-color: #e3f2ec;
+    color: #28805d;
+}
+
+.etiqueta-atencao {
+    background-color: #fff1ce;
+    color: #a77a1d;
+}
+
+.etiqueta-falha {
+    background-color: #ffe2e0;
+    color: #bc3939;
+}
+
+
+/* =========================================
+   9. ÁREA DE FILTROS
+========================================= */
+
+.area-filtros {
+    background-color: white;
+    border: 1px solid #dce4eb;
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 22px;
+}
+
+.linha-filtros {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr auto;
+    align-items: end;
+    gap: 12px;
+}
+
+.campo-pesquisa,
+.campo-setor {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.campo-pesquisa label,
+.campo-setor label {
+    color: #65788a;
+    font-size: 9px;
+    font-weight: bold;
+}
+
+.campo-pesquisa input,
+.campo-setor select {
+    height: 41px;
+    width: 100%;
+    padding: 0 11px;
+
+    color: #34475a;
+    background-color: #f7f9fb;
+
+    border: 1px solid #cfd9e2;
+    border-radius: 7px;
+    outline: none;
+
+    font-size: 11px;
+}
+
+.campo-pesquisa input:focus,
+.campo-setor select:focus {
+    border-color: #287d91;
+    box-shadow: 0 0 0 3px rgba(40, 125, 145, 0.12);
+}
+
+#btn-limpar-filtros {
+    height: 41px;
+    padding: 0 14px;
+
+    background-color: white;
+    color: #53697d;
+
+    border: 1px solid #cfd9e2;
+    border-radius: 7px;
+
+    font-size: 10px;
+    font-weight: bold;
+}
+
+#btn-limpar-filtros:hover {
+    background-color: #f1f5f8;
+}
+
+
+/* FILTROS DE ESTADO */
+
+.filtros-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.filtros-status > span {
+    color: #718092;
+    font-size: 9px;
+    font-weight: bold;
+    margin-right: 3px;
+}
+
+.filtro-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    min-height: 34px;
+    padding: 0 11px;
+
+    background-color: #f6f8fa;
+    border: 1px solid #dce4eb;
+    border-radius: 6px;
+
+    color: #596b7c;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.filtro-status:hover {
+    background-color: #eaf0f5;
+}
+
+.filtro-status.ativo {
+    background-color: #263c51;
+    color: white;
+    border-color: #263c51;
+}
+
+.bolinha {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+}
+
+.bolinha.verde {
+    background-color: #2eaa79;
+}
+
+.bolinha.amarelo {
+    background-color: #d49a29;
+}
+
+.bolinha.vermelho {
+    background-color: #d64c4c;
+}
+
+
+/* =========================================
+   10. EQUIPAMENTOS
+========================================= */
+
+.cabecalho-equipamentos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 13px;
+}
+
+.cabecalho-equipamentos h2 {
+    font-size: 15px;
+    color: #293b4e;
+}
+
+.cabecalho-equipamentos span {
+    color: #718092;
+    font-size: 10px;
+}
+
+.grade-equipamentos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 13px;
+}
+
+
+/* CARTÕES INDIVIDUAIS */
+
+.cartao-maquina {
+    min-width: 0;
+    background-color: white;
+    border: 1px solid #dce4eb;
+    border-radius: 9px;
+    padding: 13px;
+
+    display: flex;
+    flex-direction: column;
+
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cartao-maquina:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 14px rgba(27, 47, 66, 0.09);
+}
+
+.cartao-maquina.falha {
+    border-color: #dc8888;
+}
+
+.cartao-maquina.atencao {
+    border-color: #e4c56e;
+}
+
+.cartao-maquina.ok {
+    border-color: #b9daca;
+}
+
+
+/* IDENTIFICAÇÃO DA MÁQUINA */
+
+.topo-maquina {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 7px;
+    margin-bottom: 11px;
+}
+
+.codigo-maquina {
+    background-color: #24384c;
+    color: white;
+    padding: 4px 7px;
+    border-radius: 5px;
+    font-size: 9px;
+    font-weight: bold;
+}
+
+.badge-status {
+    padding: 4px 8px;
+    border-radius: 20px;
+    font-size: 8px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.badge-status.falha {
+    background-color: #ffe1df;
+    border: 1px solid #edb6b3;
+    color: #b83838;
+}
+
+.badge-status.atencao {
+    background-color: #fff1c9;
+    border: 1px solid #ecd58e;
+    color: #986f17;
+}
+
+.badge-status.ok {
+    background-color: #dff3e9;
+    border: 1px solid #b6e1cb;
+    color: #23754e;
+}
+
+
+/* INFORMAÇÕES DA MÁQUINA */
+
+.cartao-maquina h3 {
+    color: #293b4e;
+    font-size: 11px;
+    margin-bottom: 5px;
+    line-height: 1.4;
+}
+
+.setor-maquina {
+    color: #718092;
+    font-size: 9px;
+    margin-bottom: 9px;
+}
+
+.descricao-maquina {
+    min-height: 40px;
+    padding: 8px;
+
+    background-color: #f5f7f9;
+    border-radius: 6px;
+
+    color: #687b8d;
+    font-size: 9px;
+    line-height: 1.5;
+
+    margin-bottom: 11px;
+}
+
+
+/* TELEMETRIA */
+
+.dados-maquina {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+    margin-bottom: 11px;
+}
+
+.dados-maquina > div {
+    background-color: #f1f4f7;
+    border-radius: 5px;
+    padding: 8px 4px;
+    text-align: center;
+}
+
+.dados-maquina span {
+    display: block;
+    color: #81909d;
+    font-size: 8px;
+    margin-bottom: 5px;
+}
+
+.dados-maquina strong {
+    display: block;
+    color: #34495d;
+    font-size: 11px;
+}
+
+.dados-maquina .valor-falha {
+    color: #c83f3f;
+}
+
+
+/* BOTÕES DOS CARTÕES */
+
+.acoes-maquina {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
+    margin-top: auto;
+}
+
+.botao-detalhes,
+.botao-abrir-os {
+    min-height: 38px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.botao-detalhes {
+    background-color: #edf1f5;
+    border: 1px solid #e1e6eb;
+    color: #40566b;
+}
+
+.botao-detalhes:hover {
+    background-color: #e0e8ef;
+}
+
+.botao-abrir-os {
+    background-color: #287d91;
+    border: 1px solid #287d91;
     color: white;
 }
 
-
-
-.painel-tecnico {
-    background-color: #e3f0e8;
-    padding: 20px;
-    border-radius: 8px;
-    margin: 25px 30px;
+.botao-abrir-os:hover {
+    background-color: #206779;
 }
 
-.painel-tecnico h2 {
-    margin: 0;
-    color: #263445;
+.botao-abrir-os.urgente {
+    background-color: #bd3838;
+    border-color: #bd3838;
 }
 
-.painel-tecnico p {
-    margin-bottom: 0;
-    color: #52665a;
-}
-
-/* TÍTULO DO PAINEL */
-
-.titulo-painel {
-    margin: 30px;
+.botao-abrir-os.urgente:hover {
+    background-color: #a52929;
 }
 
 
-@media (max-width: 600px) {
+/* =========================================
+   11. ESTADO VAZIO
+========================================= */
 
-    header {
-        padding: 20px 15px;
+.estado-vazio {
+    background-color: white;
+    border: 1px dashed #bdcad5;
+    border-radius: 9px;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.estado-vazio h3 {
+    color: #34495d;
+    font-size: 16px;
+    margin-bottom: 9px;
+}
+
+.estado-vazio p {
+    color: #718092;
+    font-size: 12px;
+    margin-bottom: 17px;
+}
+
+.estado-vazio button {
+    background-color: #287d91;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 11px 16px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.estado-vazio[hidden] {
+    display: none !important;
+}
+
+
+/* =========================================
+   12. ACESSIBILIDADE
+========================================= */
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 3px solid #82bdca;
+    outline-offset: 3px;
+}
+
+
+/* =========================================
+   13. RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 1200px) {
+
+    .indicadores {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    header h1 {
-        font-size: 19px;
+    .grade-equipamentos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .acoes-alerta {
+        flex-direction: column;
+    }
+
+}
+
+
+/* TABLETS */
+
+@media (max-width: 850px) {
+
+    .conteudo-principal {
+        padding: 22px;
+    }
+
+    .linha-filtros {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #btn-limpar-filtros {
+        grid-column: 1 / -1;
+    }
+
+    .secao-alerta {
+        flex-wrap: wrap;
+    }
+
+    .acoes-alerta {
+        flex-direction: row;
+        width: 100%;
+        margin-left: 48px;
+    }
+
+}
+
+
+/* CELULARES */
+
+@media (max-width: 650px) {
+
+    .cabecalho-superior {
+        padding: 15px;
+    }
+
+    .barra-superior {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .dados-superiores {
+        width: 100%;
+        justify-content: space-between;
     }
 
     .navegacao {
-        flex-direction: column;
-        align-items: stretch;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .navegacao button {
-        width: 100%;
-        text-align: left;
-        white-space: normal;
+    .item-menu {
+        justify-content: center;
+        padding: 10px 6px;
+        font-size: 10px;
+    }
+
+    .conteudo-principal {
+        padding: 18px 13px;
+    }
+
+    .topo-pagina h2 {
+        font-size: 19px;
     }
 
     .painel-tecnico {
-        margin: 20px 15px;
+        flex-wrap: wrap;
     }
 
-    .titulo-painel {
-        margin: 20px 15px;
+    .etiqueta-seguranca {
+        margin-left: 52px;
     }
+
+    .secao-alerta {
+        align-items: flex-start;
+    }
+
+    .acoes-alerta {
+        margin-left: 0;
+    }
+
+    .acoes-alerta button {
+        flex: 1;
+    }
+
+}
+
+
+/* CELULARES PEQUENOS */
+
+@media (max-width: 430px) {
+
+    .indicadores {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    .cartao-indicador {
+        padding: 11px;
+    }
+
+    .valor-indicador strong {
+        font-size: 21px;
+    }
+
+    .grade-equipamentos {
+        grid-template-columns: 1fr;
+    }
+
+    .linha-filtros {
+        grid-template-columns: 1fr;
+    }
+
+    #btn-limpar-filtros {
+        grid-column: auto;
+    }
+
+    .topo-pagina {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
 }

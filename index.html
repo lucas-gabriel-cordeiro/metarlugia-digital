@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,46 +13,779 @@
 
 <body>
 
-    <header>
-        <img id="robo-img" src="robo.svg" alt="Imagem do Robô">
+    <div class="app-shell">
 
-        <h1>METALÚRGICA DIGITAL</h1>
+        <!-- MENU LATERAL -->
+        <aside class="menu-lateral">
 
-        <nav class="navegacao" aria-label="Navegação principal">
+         
+<header class="cabecalho-superior">
 
-            <button type="button" class="ativa">
-                🔔 1. Monitoramento e Alertas
-            </button>
+    <div class="barra-superior">
 
-            <button type="button">
-                🤖 2. Detalhes do Robô / Ativo
-            </button>
+        <div class="marca-sistema">
 
-            <button type="button">
-                🛠️ 3. Ordens de Serviço (OS)
-            </button>
+            <img src="robo.svg" alt="Robô industrial" id="robo-img">
 
-            <button type="button">
-                📢 4. Comunicação
-            </button>
-
-        </nav>
-    </header>
-
-    <main>
-
-        <section>
-            <div class="painel-tecnico">
-                <h2>🔧 Visão: Técnico de Manutenção</h2>
-                <p>Central de monitoramento dos equipamentos da fábrica.</p>
+            <div>
+                <h1>METALÚRGICA DIGITAL</h1>
+                <span>Planta Industrial • IHM</span>
             </div>
 
-            <div class="titulo-painel">
-                <h2>Monitoramento da Linha de Produção</h2>
-            </div>
-        </section>
+        </div>
 
-    </main>
+        <div class="dados-superiores">
+
+            <div class="perfil-usuario">
+                <div class="avatar-usuario">TM</div>
+
+                <div>
+                    <strong>Técnico de Manutenção</strong>
+                    <small>Chão de fábrica</small>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <nav class="navegacao" aria-label="Menu principal">
+
+        <button class="item-menu ativo" type="button"
+            data-tela="monitoramento">
+
+            <span>▦</span>
+            Monitoramento e Alertas
+
+        </button>
+
+        <button class="item-menu" type="button"
+            data-tela="detalhes">
+
+            <span>⚙</span>
+            Detalhes do Robô / Ativo
+
+        </button>
+
+        <button class="item-menu" type="button"
+            data-tela="ordens">
+
+            <span>▤</span>
+            Ordens de Serviço
+
+        </button>
+
+        <button class="item-menu" type="button"
+            data-tela="comunicados">
+
+            <span>⚑</span>
+            Comunicados e Decisões
+
+        </button>
+
+    </nav>
+
+</header>
+
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="conteudo-principal" id="monitoramento">
+
+
+            <!-- CABEÇALHO DA PÁGINA -->
+            <header class="topo-pagina">
+
+                <div>
+                    <span class="identificacao-pagina">
+                        UNIDADE INDUSTRIAL / MONITORAMENTO
+                    </span>
+
+                    <h2>Monitoramento da Linha de Produção</h2>
+
+                    <p>
+                        Acompanhe o funcionamento dos equipamentos da fábrica.
+                    </p>
+                </div>
+
+                <span class="status-sistema">
+                    ● IoT Online
+                </span>
+
+            </header>
+
+
+            <!-- AVISO DO PERFIL -->
+            <section class="painel-tecnico">
+
+                <div class="icone-tecnico">⚒</div>
+
+                <div class="informacao-tecnico">
+
+                    <strong>
+                        Visão: Técnico de Manutenção
+                    </strong>
+
+                    <p>
+                        Controles ampliados para toque, alertas críticos em destaque
+                        e acesso direto às Ordens de Serviço.
+                    </p>
+
+                </div>
+
+                <span class="etiqueta-seguranca">
+                    ▣ Dados da Planta
+                </span>
+
+            </section>
+
+
+            <!-- ALERTA CRÍTICO -->
+            <section class="secao-alerta">
+
+                <div class="icone-alerta">!</div>
+
+                <div class="informacao-alerta">
+
+                    <span class="texto-alerta">
+                        AÇÃO IMEDIATA NECESSÁRIA
+                    </span>
+
+                    <h3>
+                        Robô Solda Ponto KUKA KR-210 (R-01) — Solda Ponto
+                    </h3>
+
+                    <p>
+                        Sobreaquecimento crítico no transformador de solda
+                        (94°C). Bloqueio automático acionado.
+                    </p>
+
+                </div>
+
+                <div class="acoes-alerta">
+
+                    <button type="button" class="botao-inspecionar">
+                        Inspecionar Robô
+                    </button>
+
+                    <button type="button" class="botao-urgente">
+                        Abrir OS Urgente
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- INDICADORES -->
+            <section class="indicadores">
+
+
+                <article class="cartao-indicador">
+
+                    <div class="titulo-indicador">
+                        <span>OEE GLOBAL DA PLANTA</span>
+                        <span class="icone-indicador">◈</span>
+                    </div>
+
+                    <div class="valor-indicador">
+                        <strong id="valor-oee">78,4%</strong>
+
+                        <span class="etiqueta-meta">
+                            Meta: 85%
+                        </span>
+                    </div>
+
+                    <p>Eficiência Global dos Equipamentos no turno.</p>
+
+                </article>
+
+
+                <article class="cartao-indicador">
+
+                    <div class="titulo-indicador">
+                        <span>ATIVOS EM OPERAÇÃO (OK)</span>
+                        <span class="icone-indicador verde">◉</span>
+                    </div>
+
+                    <div class="valor-indicador">
+                        <strong id="total-ok">2</strong>
+                        <span class="descricao-valor">de 6 ativos</span>
+                    </div>
+
+                    <p>Máquinas sem anomalias de operação.</p>
+
+                </article>
+
+
+                <article class="cartao-indicador">
+
+                    <div class="titulo-indicador">
+                        <span>ALERTA PREDITIVO (ATENÇÃO)</span>
+                        <span class="icone-indicador amarelo">⚠</span>
+                    </div>
+
+                    <div class="valor-indicador">
+                        <strong id="total-atencao">2</strong>
+                        <span class="etiqueta-atencao">Monitorar</span>
+                    </div>
+
+                    <p>Desvios de temperatura ou ciclo próximo à revisão.</p>
+
+                </article>
+
+
+                <article class="cartao-indicador">
+
+                    <div class="titulo-indicador">
+                        <span>PARADA / FALHA CRÍTICA</span>
+                        <span class="icone-indicador vermelho">⊗</span>
+                    </div>
+
+                    <div class="valor-indicador">
+                        <strong id="total-falha">2</strong>
+                        <span class="etiqueta-falha">Crítico</span>
+                    </div>
+
+                    <p>Equipamentos bloqueados aguardando OS.</p>
+
+                </article>
+
+            </section>
+
+
+            <!-- ÁREA DE FILTROS -->
+            <section class="area-filtros">
+
+                <div class="linha-filtros">
+
+                    <div class="campo-pesquisa">
+
+                        <label for="campo-pesquisa">
+                            BUSCAR ATIVO / CÓDIGO IOT
+                        </label>
+
+                        <input
+                            type="search"
+                            id="campo-pesquisa"
+                            placeholder="⌕ Ex: R-01, KUKA, Solda, Prensa..."
+                        >
+
+                    </div>
+
+
+                    <div class="campo-setor">
+
+                        <label for="filtro-setor">
+                            SETOR DA PLANTA
+                        </label>
+
+                        <select id="filtro-setor">
+
+                            <option value="todos">
+                                Todos os Setores (4)
+                            </option>
+
+                            <option value="Solda Ponto">
+                                Solda Ponto
+                            </option>
+
+                            <option value="Solda MIG">
+                                Solda MIG
+                            </option>
+
+                            <option value="Estamparia">
+                                Estamparia
+                            </option>
+
+                            <option value="Pintura">
+                                Pintura
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <button type="button" id="btn-limpar-filtros">
+                        ↻ Limpar Filtros
+                    </button>
+
+                </div>
+
+
+                <!-- FILTROS POR ESTADO -->
+                <div class="filtros-status">
+
+                    <span>ESTADO:</span>
+
+                    <button type="button"
+                        class="filtro-status ativo"
+                        data-estado="todos"
+                        aria-pressed="true">
+
+                        Todos
+
+                    </button>
+
+                    <button type="button"
+                        class="filtro-status"
+                        data-estado="Ok"
+                        aria-pressed="false">
+
+                        <span class="bolinha verde"></span>
+                        Ok (Normal)
+
+                    </button>
+
+                    <button type="button"
+                        class="filtro-status"
+                        data-estado="Atenção"
+                        aria-pressed="false">
+
+                        <span class="bolinha amarelo"></span>
+                        Atenção
+
+                    </button>
+
+                    <button type="button"
+                        class="filtro-status"
+                        data-estado="Falha"
+                        aria-pressed="false">
+
+                        <span class="bolinha vermelho"></span>
+                        Falha Crítica
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- GRADE DOS EQUIPAMENTOS -->
+            <section class="secao-equipamentos"
+                aria-label="Equipamentos monitorados">
+
+                <div class="cabecalho-equipamentos">
+
+                    <h2>Equipamentos monitorados</h2>
+
+                    <span id="total-equipamentos">
+                        6 ativos encontrados
+                    </span>
+
+                </div>
+
+
+                <div class="grade-equipamentos" id="grade-equipamentos">
+
+
+                    <!-- EQUIPAMENTO 1 -->
+                    <article class="cartao-maquina falha"
+                        data-codigo="R-01"
+                        data-setor="Solda Ponto"
+                        data-estado="Falha"
+                        data-nome="Robô Solda Ponto KUKA KR-210">
+
+                        <div class="topo-maquina">
+
+                            <span class="codigo-maquina">R-01</span>
+
+                            <span class="badge-status falha">
+                                ● FALHA
+                            </span>
+
+                        </div>
+
+                        <h3>Robô Solda Ponto KUKA KR-210</h3>
+
+                        <span class="setor-maquina">
+                            Setor: Solda Ponto
+                        </span>
+
+                        <p class="descricao-maquina">
+                            Sobreaquecimento crítico no transformador de solda (94°C).
+                            Bloqueio automático acionado.
+                        </p>
+
+                        <div class="dados-maquina">
+
+                            <div>
+                                <span>TEMP.</span>
+                                <strong class="valor-falha">94°C</strong>
+                            </div>
+
+                            <div>
+                                <span>OEE</span>
+                                <strong>61,5%</strong>
+                            </div>
+
+                            <div>
+                                <span>VIBRAÇÃO</span>
+                                <strong>4.2</strong>
+                            </div>
+
+                        </div>
+
+                        <div class="acoes-maquina">
+
+                            <button type="button" class="botao-detalhes"
+                                data-acao="detalhes" data-ativo="R-01">
+                                Detalhes
+                            </button>
+
+                            <button type="button" class="botao-abrir-os urgente"
+                                data-acao="os" data-ativo="R-01">
+                                Abrir OS
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- EQUIPAMENTO 2 -->
+                    <article class="cartao-maquina atencao"
+                        data-codigo="R-02"
+                        data-setor="Solda MIG"
+                        data-estado="Atenção"
+                        data-nome="Robô Solda MIG ABB IRB-2600">
+
+                        <div class="topo-maquina">
+
+                            <span class="codigo-maquina">R-02</span>
+
+                            <span class="badge-status atencao">
+                                ● ATENÇÃO
+                            </span>
+
+                        </div>
+
+                        <h3>Robô Solda MIG ABB IRB-2600</h3>
+
+                        <span class="setor-maquina">
+                            Setor: Solda MIG
+                        </span>
+
+                        <p class="descricao-maquina">
+                            Oscilação na vazão do gás de proteção e proximidade
+                            do limite térmico (76°C).
+                        </p>
+
+                        <div class="dados-maquina">
+
+                            <div>
+                                <span>TEMP.</span>
+                                <strong>76°C</strong>
+                            </div>
+
+                            <div>
+                                <span>OEE</span>
+                                <strong>85%</strong>
+                            </div>
+
+                            <div>
+                                <span>VIBRAÇÃO</span>
+                                <strong>3.1</strong>
+                            </div>
+
+                        </div>
+
+                        <div class="acoes-maquina">
+
+                            <button type="button" class="botao-detalhes"
+                                data-acao="detalhes" data-ativo="R-02">
+                                Detalhes
+                            </button>
+
+                            <button type="button" class="botao-abrir-os"
+                                data-acao="os" data-ativo="R-02">
+                                Abrir OS
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- EQUIPAMENTO 3 -->
+                    <article class="cartao-maquina falha"
+                        data-codigo="P-04"
+                        data-setor="Estamparia"
+                        data-estado="Falha"
+                        data-nome="Prensa Hidráulica Schuler 800T">
+
+                        <div class="topo-maquina">
+
+                            <span class="codigo-maquina">P-04</span>
+
+                            <span class="badge-status falha">
+                                ● FALHA
+                            </span>
+
+                        </div>
+
+                        <h3>Prensa Hidráulica Schuler 800T</h3>
+
+                        <span class="setor-maquina">
+                            Setor: Estamparia
+                        </span>
+
+                        <p class="descricao-maquina">
+                            Queda abrupta de pressão no circuito hidráulico
+                            aguardando avaliação.
+                        </p>
+
+                        <div class="dados-maquina">
+
+                            <div>
+                                <span>TEMP.</span>
+                                <strong class="valor-falha">88°C</strong>
+                            </div>
+
+                            <div>
+                                <span>OEE</span>
+                                <strong>54%</strong>
+                            </div>
+
+                            <div>
+                                <span>VIBRAÇÃO</span>
+                                <strong>6.8</strong>
+                            </div>
+
+                        </div>
+
+                        <div class="acoes-maquina">
+
+                            <button type="button" class="botao-detalhes"
+                                data-acao="detalhes" data-ativo="P-04">
+                                Detalhes
+                            </button>
+
+                            <button type="button" class="botao-abrir-os urgente"
+                                data-acao="os" data-ativo="P-04">
+                                Abrir OS
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- EQUIPAMENTO 4 -->
+                    <article class="cartao-maquina ok"
+                        data-codigo="R-05"
+                        data-setor="Solda Ponto"
+                        data-estado="Ok"
+                        data-nome="Robô Solda Ponto FANUC R-2000iC">
+
+                        <div class="topo-maquina">
+
+                            <span class="codigo-maquina">R-05</span>
+
+                            <span class="badge-status ok">
+                                ● OK
+                            </span>
+
+                        </div>
+
+                        <h3>Robô Solda Ponto FANUC R-2000iC</h3>
+
+                        <span class="setor-maquina">
+                            Setor: Solda Ponto
+                        </span>
+
+                        <p class="descricao-maquina">
+                            Operando dentro dos parâmetros ideais.
+                        </p>
+
+                        <div class="dados-maquina">
+
+                            <div>
+                                <span>TEMP.</span>
+                                <strong>58°C</strong>
+                            </div>
+
+                            <div>
+                                <span>OEE</span>
+                                <strong>94,8%</strong>
+                            </div>
+
+                            <div>
+                                <span>VIBRAÇÃO</span>
+                                <strong>1.4</strong>
+                            </div>
+
+                        </div>
+
+                        <div class="acoes-maquina">
+
+                            <button type="button" class="botao-detalhes"
+                                data-acao="detalhes" data-ativo="R-05">
+                                Detalhes
+                            </button>
+
+                            <button type="button" class="botao-abrir-os"
+                                data-acao="os" data-ativo="R-05">
+                                Abrir OS
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- EQUIPAMENTO 5 -->
+                    <article class="cartao-maquina ok"
+                        data-codigo="PT-02"
+                        data-setor="Pintura"
+                        data-estado="Ok"
+                        data-nome="Cabine Pintura Eletrostática Dürr">
+
+                        <div class="topo-maquina">
+
+                            <span class="codigo-maquina">PT-02</span>
+
+                            <span class="badge-status ok">
+                                ● OK
+                            </span>
+
+                        </div>
+
+                        <h3>Cabine Pintura Eletrostática Dürr</h3>
+
+                        <span class="setor-maquina">
+                            Setor: Pintura
+                        </span>
+
+                        <p class="descricao-maquina">
+                            Pressão positiva de cabine e exaustão estabilizadas.
+                        </p>
+
+                        <div class="dados-maquina">
+
+                            <div>
+                                <span>TEMP.</span>
+                                <strong>26°C</strong>
+                            </div>
+
+                            <div>
+                                <span>OEE</span>
+                                <strong>91,5%</strong>
+                            </div>
+
+                            <div>
+                                <span>VIBRAÇÃO</span>
+                                <strong>0.9</strong>
+                            </div>
+
+                        </div>
+
+                        <div class="acoes-maquina">
+
+                            <button type="button" class="botao-detalhes"
+                                data-acao="detalhes" data-ativo="PT-02">
+                                Detalhes
+                            </button>
+
+                            <button type="button" class="botao-abrir-os"
+                                data-acao="os" data-ativo="PT-02">
+                                Abrir OS
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- EQUIPAMENTO 6 -->
+                    <article class="cartao-maquina atencao"
+                        data-codigo="R-08"
+                        data-setor="Solda MIG"
+                        data-estado="Atenção"
+                        data-nome="Robô Solda MIG Yaskawa Motoman">
+
+                        <div class="topo-maquina">
+
+                            <span class="codigo-maquina">R-08</span>
+
+                            <span class="badge-status atencao">
+                                ● ATENÇÃO
+                            </span>
+
+                        </div>
+
+                        <h3>Robô Solda MIG Yaskawa Motoman</h3>
+
+                        <span class="setor-maquina">
+                            Setor: Solda MIG
+                        </span>
+
+                        <p class="descricao-maquina">
+                            Contador atingiu 98,6% da vida útil preventiva
+                            do redutor do eixo 3.
+                        </p>
+
+                        <div class="dados-maquina">
+
+                            <div>
+                                <span>TEMP.</span>
+                                <strong>71°C</strong>
+                            </div>
+
+                            <div>
+                                <span>OEE</span>
+                                <strong>85,4%</strong>
+                            </div>
+
+                            <div>
+                                <span>VIBRAÇÃO</span>
+                                <strong>2.7</strong>
+                            </div>
+
+                        </div>
+
+                        <div class="acoes-maquina">
+
+                            <button type="button" class="botao-detalhes"
+                                data-acao="detalhes" data-ativo="R-08">
+                                Detalhes
+                            </button>
+
+                            <button type="button" class="botao-abrir-os"
+                                data-acao="os" data-ativo="R-08">
+                                Abrir OS
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <!-- ESTADO VAZIO -->
+                <div class="estado-vazio" id="estado-vazio" hidden>
+
+                    <h3>Nenhum ativo encontrado</h3>
+
+                    <p>
+                        Não existem equipamentos correspondentes aos filtros selecionados.
+                    </p>
+
+                    <button type="button" id="btn-redefinir-filtros">
+                        Redefinir filtros
+                    </button>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
 
 </body>
+
 </html>
